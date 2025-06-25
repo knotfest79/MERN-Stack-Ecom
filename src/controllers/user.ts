@@ -25,17 +25,6 @@ export const newUser = async (
       message: `Welcome, ${user.name}`,
     });
   } catch (error: any) {
-    if (error.code === 11000) {
-      const duplicateField = Object.keys(error.keyPattern)[0];
-      return res.status(400).json({
-        success: false,
-        message: `${duplicateField} already exist`,
-      });
-    }
-
-    return res.status(500).json({
-      success: false,
-      message: error.message || "Something went wrong",
-    });
+    next(error);
   }
 };
