@@ -5,7 +5,10 @@
     "rootDir": "src",                                
     "moduleResolution": "nodenext",                     
     "outDir": "dist",                                                                                          
-    "strict": true,                                                                              
+    "strict": true,                                                                        
   }
 }
+
+
+
 

@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import ErrorHandler from "../utils/utility-class.js";
+import { ContollerType } from "../types/types.js";
 
 export const errorMiddleware = (
   err: any,
@@ -16,7 +17,7 @@ export const errorMiddleware = (
     return;
   }
 
-  //Handles custom Errorhandler
+  //Handles custom ErrorHandler
   if (err instanceof ErrorHandler) {
     res.status(err.statusCode || 500).json({
       success: false,
@@ -29,3 +30,9 @@ export const errorMiddleware = (
     message: err.message || "Something went wrong",
   });
 };
+
+export const TryCatch =
+  (func: ContollerType) =>
+  (req: Request, res: Response, next: NextFunction) => {
+    return Promise.resolve(func(req, res, next));
+  };

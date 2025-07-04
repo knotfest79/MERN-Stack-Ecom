@@ -1,13 +1,3 @@
-// import mongoose from "mongoose";
-// export const connectDB = () => {
-//   mongoose
-//     .connect("", {
-//       dbName: "Ecommerce 25",
-//     })
-//     .then((c) => console.log(`DB Connected to ${c.connection.host}`))
-//     .catch((e) => console.log(e));
-// };
-// utils/features.ts
 import mongoose from "mongoose";
 
 export const connectDB = () => {

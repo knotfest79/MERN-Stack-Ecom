@@ -8,7 +8,7 @@ export const errorMiddleware = (err, req, res, next) => {
         });
         return;
     }
-    //Handles custom Errorhandler
+    //Handles custom ErrorHandler
     if (err instanceof ErrorHandler) {
         res.status(err.statusCode || 500).json({
             success: false,
@@ -20,4 +20,7 @@ export const errorMiddleware = (err, req, res, next) => {
         success: false,
         message: err.message || "Something went wrong",
     });
+};
+export const TryCatch = (func) => (req, res, next) => {
+    return Promise.resolve(func(req, res, next));
 };
