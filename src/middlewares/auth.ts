@@ -12,4 +12,6 @@ export const adminOnly = TryCatch(async (req, res, next) => {
 
   if (user.role !== "admin")
     return next(new ErrorHandler("You are not an administrator", 401));
+
+  next();
 });
